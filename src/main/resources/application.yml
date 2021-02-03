@@ -1,0 +1,19 @@
+server:
+  port: 9000
+#mysql
+spring:
+  datasource:
+    #mysql配置
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/allowance?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.demo.model
+
+#mybatis打印sql语句
+logging:
+  level:
+    com.xxcw.allowance.mapper: debug
