@@ -8,7 +8,8 @@ spring:
     url: jdbc:mysql://localhost:3306/allowance?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: root
-
+  profiles:
+    include: redis  #引入外部配置文件
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.example.demo.model

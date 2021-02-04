@@ -1,6 +1,13 @@
 package com.xxcw.allowance.bean;
 
-public class User {
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
+
+@ApiModel(description = "登录表单")
+public class User implements Serializable {
     private int id;
     private String username;
     private String password;
@@ -12,15 +19,17 @@ public class User {
     }
 
 
-
     public int getId() {
         return id;
     }
 
+    @ApiModelProperty(value="登录账号",name="username",required = true,example = "admin")
+    @NotBlank(message="账号不允许为空，请输入")
     public String getUsername() {
         return username;
     }
-
+    @ApiModelProperty(value="登录密码",name="password",required = true,example = "123456")
+    @NotBlank(message="密码不允许为空，请输入")
     public String getPassword() {
         return password;
     }
