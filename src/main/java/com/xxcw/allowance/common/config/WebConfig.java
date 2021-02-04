@@ -1,4 +1,4 @@
-package com.xxcw.allowance.util;
+package com.xxcw.allowance.common.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

@@ -1,4 +1,5 @@
 ## IDEA提交项目到github
+https://www.cnblogs.com/gujun1998/p/11375625.html
 
 1. 依次选择 File ---> Settings ---> Version Control ---> Git 
 在 Path to Git executable 中选择自己安装的git的路径，然后可以点击右边的Test测试，出现git的版本表示成功，如下图1所示。
