@@ -7,8 +7,7 @@ import com.xxcw.allowance.common.base.BaseResponse;
 import com.xxcw.allowance.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -19,7 +18,8 @@ public class UserService extends BaseApiService {
     @Autowired
     private UserMapper userMapper;
 
-    @RequestMapping("/getAllUser")
+    //获取所有用户
+    @GetMapping("/getAllUser")
     public BaseResponse getAllUser(QueryInfo queryInfo) {
         log.info("QueryInfo:"+queryInfo);
         int total = userMapper.getUserCounts("%" + queryInfo.getQuery() + "%");
@@ -29,5 +29,42 @@ public class UserService extends BaseApiService {
         res.put("total", total);
         res.put("data", users);
         return setResultSuccess(res);
+    }
+
+    //根据id获取用户
+    @GetMapping("/getUpdateUser")
+    public BaseResponse getUpdateUser(@RequestParam("id") int id) {
+        log.info("id============="+userMapper.getUpdateUser(id));
+        return setResultSuccess(userMapper.getUpdateUser(id));
+    }
+
+    //更改用户状态
+    @PutMapping("/updateState")
+    public BaseResponse updateState(@RequestParam("id") int id,@RequestParam("state") Boolean state){
+        userMapper.updateState(id,state);
+        return setResultSuccess();
+    }
+
+    //增加用户
+    @PostMapping("/addUser")
+    public BaseResponse addUser(@RequestBody User user){
+        user.setRole("普通用户");
+        user.setState(false);
+        userMapper.addUser(user);
+        return setResultSuccess();
+    }
+
+    //修改用户
+    @PostMapping("/editUser")
+    public BaseResponse editUser(@RequestBody User user){
+        userMapper.editUser(user);
+        return setResultSuccess();
+    }
+
+    //删除用户
+    @DeleteMapping("/deleteUser")
+    public BaseResponse deleteUser(@RequestParam("id") int id){
+        userMapper.deleteUser(id);
+        return setResultSuccess();
     }
 }
