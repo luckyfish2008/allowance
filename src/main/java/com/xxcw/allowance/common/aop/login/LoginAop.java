@@ -59,7 +59,7 @@ public class LoginAop {
      * @date: 2020-11-26 20:54
      * @version: 1.0
      */
-    @Around("login()")
+    //@Around("login()")
     public Object validate(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         MethodSignature method = (MethodSignature)proceedingJoinPoint.getSignature();
         log.info("########################所有接口请求的登陆验证:"+method.getMethod());

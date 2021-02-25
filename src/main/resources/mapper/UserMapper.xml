@@ -3,10 +3,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.xxcw.allowance.mapper.UserMapper">
+    <!--
     <select id="getUserByMassage" resultType="com.xxcw.allowance.bean.User">
        	SELECT * FROM easyUser
        	WHERE username=#{username} AND password=#{password} and state='1'
     </select>
+    -->
 
     <select id="getAllUser" resultType="com.xxcw.allowance.bean.User">
        	SELECT * FROM easyUser

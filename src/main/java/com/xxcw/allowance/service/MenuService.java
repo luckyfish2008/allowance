@@ -1,6 +1,7 @@
 package com.xxcw.allowance.service;
 
 import com.xxcw.allowance.bean.SubMenu;
+import com.xxcw.allowance.common.aop.login.NoLogin;
 import com.xxcw.allowance.common.base.BaseApiService;
 import com.xxcw.allowance.common.base.BaseResponse;
 import com.xxcw.allowance.bean.MainMenu;
@@ -64,6 +65,13 @@ public class MenuService extends BaseApiService {
         mainMenus.add(main2);
         */
         return setResultSuccess(mainMenus);
+    }
+
+    @NoLogin
+    @GetMapping("/findMenus")
+    public BaseResponse findMenus(){
+
+        return setResultSuccess(menuMapper.findMeanus());
     }
 }
 
